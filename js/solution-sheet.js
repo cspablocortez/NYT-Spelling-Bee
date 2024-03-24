@@ -22,7 +22,7 @@ function clearSolutions() {
         fiveLetterList.removeChild(fiveLetterList.firstChild);
     }
 
-    while (fourLetterList.firstChild) {
+    while (sixLetterList.firstChild) {
         sixLetterList.removeChild(sixLetterList.firstChild);
     }
 

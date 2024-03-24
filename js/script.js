@@ -142,7 +142,7 @@ function populateSolutionsSheet(acceptableWords) {
     solutionData.nineLetterWords.forEach(word => {
         const listItem = document.createElement('li');
         listItem.textContent = word;
-        eightLetterList.appendChild(listItem);
+        nineLetterList.appendChild(listItem);
     });
     solutionData.eightLetterWords.forEach(word => {
         const listItem = document.createElement('li');
