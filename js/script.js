@@ -35,8 +35,8 @@ async function collectDictionary() {
     try {
         // url = 'https://raw.githubusercontent.com/melurke/Spelling-Bee/main/word_list.txt' 
         // url = 'https://raw.githubusercontent.com/ebosspc/NYT-Spelling-Bee-Solver/main/Words_English.txt'
-        // url = 'https://raw.githubusercontent.com/en-wl/wordlist/master/alt12dicts/2of4brif.txt'
-        url = 'https://raw.githubusercontent.com/ddexter/NYT-Spelling-Bee/main/dictionary.txt'
+        url = 'https://raw.githubusercontent.com/en-wl/wordlist/master/alt12dicts/2of4brif.txt'
+        // url = 'https://raw.githubusercontent.com/ddexter/NYT-Spelling-Bee/main/dictionary.txt' // respect
         // url = 'https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt'
         // localUrl = '../data/words_alpha.txt';
         const response = await fetch(url);
@@ -74,7 +74,9 @@ function populateSolutionsSheet(acceptableWords) {
         fourLetterWords: [],
         fiveLetterWords: [],
         sixLetterWords: [],
-        pangrams: []
+        sevenLetterWords: [],
+        eightLetterWords: [],
+        nineLetterWords: []
     } 
 
     acceptableWords.forEach(word => {
@@ -88,24 +90,44 @@ function populateSolutionsSheet(acceptableWords) {
             solutionData.sixLetterWords.push(word);
         }
         if (word.length == 7) {
-            solutionData.pangrams.push(word);
+            solutionData.sevenLetterWords.push(word);
+        }
+        if (word.length == 8) {
+            solutionData.eightLetterWords.push(word);
+        }
+        if (word.length == 9) {
+            solutionData.nineLetterWords.push(word);
         }
     });
 
     console.log('Populating solutions sheet...');
     console.log(solutionData);
     const hits = document.getElementById('hits');
-    const pangramsList = document.getElementById('pangrams-list');
+
+    const nineLetterList = document.getElementById('eight-letter-list');
+    const eightLetterList = document.getElementById('eight-letter-list');
+    const sevenLetterList = document.getElementById('seven-letter-list');
     const sixLetterList = document.getElementById('six-letter-list');
     const fiveLetterList = document.getElementById('five-letter-list');
     const fourLetterList = document.getElementById('four-letter-list');
+    
 
     hits.innerText = `Possible solutions found: (${acceptableWords.length})`
 
-    solutionData.pangrams.forEach(word => {
+    solutionData.nineLetterWords.forEach(word => {
         const listItem = document.createElement('li');
         listItem.textContent = word;
-        pangramsList.appendChild(listItem);
+        eightLetterList.appendChild(listItem);
+    });
+    solutionData.eightLetterWords.forEach(word => {
+        const listItem = document.createElement('li');
+        listItem.textContent = word;
+        eightLetterList.appendChild(listItem);
+    });
+    solutionData.sevenLetterWords.forEach(word => {
+        const listItem = document.createElement('li');
+        listItem.textContent = word;
+        sevenLetterList.appendChild(listItem);
     });
     solutionData.sixLetterWords.forEach(word => {
         const listItem = document.createElement('li');

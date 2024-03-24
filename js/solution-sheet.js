@@ -9,7 +9,9 @@ document.getElementById('solve-btn').addEventListener('click', () => {
 const fourLetterList = document.getElementById('four-letter-list');
 const fiveLetterList = document.getElementById('five-letter-list');
 const sixLetterList = document.getElementById('six-letter-list');
-const pangramsList = document.getElementById('pangrams-list');
+const sevenLetterList = document.getElementById('seven-letter-list');
+const eightLetterList = document.getElementById('eight-letter-list');
+const nineLetterList = document.getElementById('nine-letter-list');
 
 function clearSolutions() {
     while (fourLetterList.firstChild) {
@@ -24,8 +26,16 @@ function clearSolutions() {
         sixLetterList.removeChild(sixLetterList.firstChild);
     }
 
-    while(pangramsList.firstChild) {
-        pangramsList.removeChild(pangramsList.firstChild);
+    while(sevenLetterList.firstChild) {
+        sevenLetterList.removeChild(sevenLetterList.firstChild);
+    }
+
+    while(eightLetterList.firstChild) {
+        eightLetterList.removeChild(eightLetterList.firstChild);
+    }
+
+    while(nineLetterList.firstChild) {
+        nineLetterList.removeChild(nineLetterList.firstChild);
     }
 }
 
@@ -44,7 +54,17 @@ sixLetterList.addEventListener('click', (e) => {
         e.target.remove();
     }
 });
-pangramsList.addEventListener('click', (e) => {
+sevenLetterList.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        e.target.remove();
+    }
+});
+eightLetterList.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        e.target.remove();
+    }
+});
+nineLetterList.addEventListener('click', (e) => {
     if (e.target.tagName === 'LI') {
         e.target.remove();
     }
