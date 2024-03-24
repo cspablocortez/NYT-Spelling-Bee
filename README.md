@@ -1,7 +1,7 @@
 # NYT-Spelling-Bee
  A NYT Spelling Bee solver.
 
-[screenshot.PNG]
+![Screenshot](images/screenshot.PNG "Mobile Screenshot")
 
 # Live Link
 
