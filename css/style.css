@@ -12,6 +12,7 @@ section {
     font-family: 'Times New Roman', Times, serif;
     background-color: var(--background-color);
     padding: 1.25rem 1.25rem;
+    user-select: none;
 }
 
 .letter-container {
