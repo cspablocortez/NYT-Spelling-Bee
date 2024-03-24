@@ -69,6 +69,12 @@ section {
     font-weight: bold;
 }
 
+#edit-btn {
+    border: none;
+    font-size: 2rem;
+    color: #e6e6e6;
+}
+
 /* Solutions Sheet*/
 
 #solutions-sheet {

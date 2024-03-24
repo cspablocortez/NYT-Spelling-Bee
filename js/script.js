@@ -13,8 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const solutionBtn = document.getElementById('solve-btn');
 
+const editBtn = document.getElementById('edit-btn');
+
+
 solutionBtn.addEventListener('click', () => {
     solvePuzzle();
+});
+
+editBtn.addEventListener('click', () => {
+    let iconEl = document.querySelector('i')
+    if(iconEl) {
+        iconEl.classList.toggle('fa-lock');
+        iconEl.classList.toggle('fa-unlock');
+    }
+
+    document.querySelectorAll('.fa-lock').forEach(function(element) {
+        if (element.getAttribute('contenteditable') === 'true') {
+            element.removeAttribute('contenteditable');
+        }
+    });
+    
+
+    const els = document.querySelectorAll('.letter');
+    console.log(els);
+    els.forEach((c) => {
+        c.setAttribute('contenteditable', 'true');
+    })
+
 });
 
 function collectLetters() {
