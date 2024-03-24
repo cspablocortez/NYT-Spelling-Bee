@@ -5,5 +5,5 @@
 
 https://cspablocortez.github.io/NYT-Spelling-Bee
 
-![Screenshot](images/screenshot.PNG "Mobile Screenshot")
+![Screenshot](images/screenshot-desktop.png "Screenshot")
 
