@@ -15,7 +15,6 @@ const solutionBtn = document.getElementById('solve-btn');
 
 const editBtn = document.getElementById('edit-btn');
 
-
 solutionBtn.addEventListener('click', () => {
     solvePuzzle();
 });
@@ -27,19 +26,21 @@ editBtn.addEventListener('click', () => {
         iconEl.classList.toggle('fa-unlock');
     }
 
-    document.querySelectorAll('.fa-lock').forEach(function(element) {
-        if (element.getAttribute('contenteditable') === 'true') {
+    
+    // const els = document.querySelectorAll('.letter');
+    // console.log(els);
+    // els.forEach((c) => {
+    //     c.setAttribute('contenteditable', 'true');
+    // })
+
+    document.querySelectorAll('.letter').forEach(function(element) {
+        if (element.hasAttribute('contenteditable')) {
             element.removeAttribute('contenteditable');
+        } else {
+            element.setAttribute('contenteditable', 'true');
         }
     });
     
-
-    const els = document.querySelectorAll('.letter');
-    console.log(els);
-    els.forEach((c) => {
-        c.setAttribute('contenteditable', 'true');
-    })
-
 });
 
 function collectLetters() {

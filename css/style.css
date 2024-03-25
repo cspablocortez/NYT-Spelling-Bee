@@ -33,11 +33,22 @@ section {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     font-weight: bold;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.letter:focus {
+    outline-color: var(--accent);
 }
 
 #center-letter {
+    display: inline-block;
     background-color: var(--accent);
     padding: 0.75rem 1.5rem;
+}
+
+#center-letter:focus {
+    outline-color: #000;
 }
 
 .solution-container {
@@ -75,7 +86,10 @@ section {
 #edit-btn {
     border: none;
     font-size: 2rem;
-    color: #e6e6e6;
+    color: #aba7a7;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
 /* Solutions Sheet*/
