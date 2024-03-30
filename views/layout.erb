@@ -16,6 +16,38 @@
             <%= yield %>
         </main>
 
+        <section>   
+            <div class="solution-container">
+                <img id="bee" src="https://www.nytimes.com/games-assets/v2/assets/expansion-games/spelling-bee-card-icon.svg" alt="NYT Bee Icon">
+                <button id="solve-btn">Solve</button>
+            </div>
+        </section>
+        
+        <section id="solutions-sheet" class="slide-out">
+            <button id="close-btn">&times;</button>
+
+            <p id="hits"><strong></strong></p>
+            <p>Tap a word to remove it.</p>
+
+            <h5><strong>9 Letter Words</strong></h5>
+            <ul id="nine-letter-list"></ul>
+
+            <h5><strong>8 Letter Words</strong></h5>
+            <ul id="eight-letter-list"></ul>
+
+            <h5><strong>7 Letter Words</strong></h5>
+            <ul id="seven-letter-list"></ul>
+
+            <h5><strong>6 Letter Words</strong></h5>
+            <ul id="six-letter-list"></ul>
+
+            <h5><strong>5 Letter Words</strong></h5>
+            <ul id="five-letter-list"></ul>
+
+            <h5><strong>4 Letter Words</strong></h5>
+            <ul id="four-letter-list"></ul>
+        </section>
+
         <script src="js/script.js"></script>
         <script src="js/solution-sheet.js"></script>
     </body>
