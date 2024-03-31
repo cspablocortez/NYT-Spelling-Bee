@@ -28,6 +28,7 @@ PLATFORMS
 
 DEPENDENCIES
   puma
+  rack
   sinatra
 
 RUBY VERSION
