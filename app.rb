@@ -4,9 +4,16 @@ require_relative 'lib/spelling_bee'
 get '/' do
     t = Time.new
     url = SpellingBee.generate_url(t.year, t.month, t.day)
-    @puzzle = SpellingBee.get_puzzle(url, SpellingBee::USER_AGENT)
+    html = SpellingBee.download_puzzle_html(url, SpellingBee::USER_AGENT)
 
+    section_error = erb :error, layout: false
     section_date = erb :date, layout: false
-    section_puzzle = erb :puzzle, layout: false
-    erb "#{section_date}#{section_puzzle}", layout: true
+
+    if html.nil?
+        erb "#{section_date}#{section_error}", layout: true
+    else
+        @puzzle = SpellingBee.get_puzzle(html)
+        section_puzzle = erb :puzzle, layout: false
+        erb "#{section_date}#{section_puzzle}", layout: true
+    end
 end
