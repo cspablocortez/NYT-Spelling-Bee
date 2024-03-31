@@ -1,0 +1,9 @@
+<section>
+    <h2>Center Letter: <span class="letter" id="center-letter"><%= @puzzle[:center_letter] %></span></h2>
+    <h2 style="margin-bottom: 2rem;">Outer Letters:</h2>
+    <div class="letter-container">
+        <% @puzzle[:outer_letters].each do |letter| %>
+            <span class="letter"><%= letter %></span>
+        <% end %>
+    </div>
+</section>
