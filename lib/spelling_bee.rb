@@ -2,8 +2,16 @@ require 'nokogiri'
 require 'open-uri'
 
 module SpellingBee
-    # USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
-    USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0'
+    USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36'
+    HEADERS = {
+        'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Encoding' => 'gzip, deflate, br',
+        'Accept-Language' => 'en-US,en;q=0.9',
+        'Referer' => 'https://duckduckgo.com/',
+        'cache-control' => 'max-age=0',
+        'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
+    }
+
     FILE_PATH = 'puzzles'
 
     def self.generate_url(year, month, day)
@@ -12,7 +20,7 @@ module SpellingBee
         "#{base_url}/#{year}/#{sprintf('%02d', month)}/#{sprintf('%02d', day)}#{path}"
     end
 
-    def self.download_puzzle_html(url, user_agent) 
+    def self.download_puzzle_html(url) 
         t = Time.new
         file_name = "#{t.year}-#{sprintf('%02d', t.month)}-#{sprintf('%02d', t.day)}.html"
         file_path = "#{FILE_PATH}/#{file_name}"
@@ -20,9 +28,10 @@ module SpellingBee
         begin
             if File.exist?(file_path)
                 puts 'File already exists. No need to download again.'
+                return file_path
             else
                 puts "Fetching #{url}"
-                URI.open(url) do |f|
+                URI.open(url, 'User-Agent' => USER_AGENT) do |f|
                     content = f.read
 
                     File.open(file_path, 'w') do |file|

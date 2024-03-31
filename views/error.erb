@@ -1,5 +1,5 @@
 <section>
-  <p>There was an error fetching today's puzzle. Try inputting letters manually by enabling edit mode and clicking solve.</p>
+  <p>There was an error fetching today's puzzle. Try inputting letters manually by enabling edit mode and clicking solve or accessing after 12:00 AM PST.</p>
     <% puzzle = ['A', 'B', 'C', 'D', 'E', 'F', 'G'] %>
   <h2>Center Letter: <span class="letter" id="center-letter" ><%= puzzle.shift %></span></h2>
   <h2 style="margin-bottom: 2rem;">Outer Letters: </h2>
@@ -9,10 +9,12 @@
     <% end %>
   </div>
 </section>
+
 <section>   
     <div class="solution-container">
         <img id="bee" src="https://www.nytimes.com/games-assets/v2/assets/expansion-games/spelling-bee-card-icon.svg" alt="NYT Bee Icon">
         <button id="solve-btn">Solve</button>
     </div>
 </section>
+
 <button id="edit-btn"><i class="fa fa-lock" aria-hidden="true"></i></button>
