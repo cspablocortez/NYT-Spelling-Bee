@@ -2,7 +2,7 @@ require 'sinatra'
 require_relative 'lib/spelling_bee'
 
 get '/' do
-    t = Time.new
+    t = Time.new.getlocal('-07:00')
     url = SpellingBee.generate_url(t.year, t.month, t.day)
     html = SpellingBee.download_puzzle_html(url)
 

@@ -1,4 +1,5 @@
 <section>
     <h1>Spelling Bee</h1>
-    <h5 style="color: #222"><%= Time.new.strftime("%A %d %B %Y") %></h5>
+    <h5 style="color: #222"><%= Time.new.getlocal('-07:00').strftime("%A %d %B %Y") %></h5>
+
 </section>
