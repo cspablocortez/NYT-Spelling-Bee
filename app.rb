@@ -3,7 +3,11 @@ require_relative 'lib/spelling_bee'
 
 get '/' do
     t = Time.new.getlocal('-07:00')
+    puts "Current time: #{t}"
+
     url = SpellingBee.generate_url(t.year, t.month, t.day)
+    puts "Generated URL: #{url}"
+    
     html = SpellingBee.download_puzzle_html(url)
 
     section_error = erb :error, layout: false
