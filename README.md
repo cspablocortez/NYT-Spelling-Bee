@@ -7,3 +7,6 @@ https://cspablocortez.github.io/NYT-Spelling-Bee
 
 ![Screenshot](public/images/screenshot-desktop.png "Screenshot")
 
+## Notes
+
+April 4 not 14!!
