@@ -11,4 +11,12 @@ module SpellingBee
         url = "#{base_url}/#{year}/#{sprintf('%02d', month)}/#{sprintf('%02d', day)}/#{path}"
     end
 
+    def self.download_puzzle_html(url)
+        t = Time.new
+        file_name = "#{t.year}-#{sprintf('%02d', t.month)}-#{sprintf('%02d', t.day)}.html"
+        file_path = "#{FILE_PATH}/#{file_name}"
+
+        
+    end
+
 end
