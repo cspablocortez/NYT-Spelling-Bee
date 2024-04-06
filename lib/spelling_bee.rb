@@ -16,7 +16,21 @@ module SpellingBee
         file_name = "#{t.year}-#{sprintf('%02d', t.month)}-#{sprintf('%02d', t.day)}.html"
         file_path = "#{FILE_PATH}/#{file_name}"
 
-        
+        if File.exist?(file_path)
+            puts 'File already exists. No need to download again.'
+        else
+            puts "Fetching #{url}"
+            URI.open(url, 'User-Agent' => USER_AGENT) do |f|
+                content = f.read
+
+                File.open(file_path, 'w') do |file|
+                    file.write(content)
+                end
+
+                puts "Contents saved to #{file_path}."
+            end
+        end
+        return file_path
     end
 
 end
