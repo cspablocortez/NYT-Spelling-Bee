@@ -35,4 +35,18 @@ module SpellingBee
         return file_path
     end
 
+    def self.get_puzzle(html_file)
+        puts "Reading from #{html_file}:"
+        data = Nokogiri::HTML(File.read(html_file))
+        content_elements = data.css('.content')
+        letters = content_elements[1].text.gsub(/[\s\n\r]+/, '').split('').map(&:upcase)
+        center_letter = letters.shift
+        outer_letters = letters
+
+        puzzle = {
+            :center_letter => center_letter,
+            :outer_letters => outer_letters
+        }
+    end
+
 end
