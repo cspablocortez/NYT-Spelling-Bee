@@ -7,7 +7,7 @@ module SpellingBee
 
     def self.generate_url(year, month, day)
         base_url = 'https://www.nytimes.com'
-        path = '/crosswords/spelling-bee-forum.html'
+        path = 'crosswords/spelling-bee-forum.html'
         url = "#{base_url}/#{year}/#{sprintf('%02d', month)}/#{sprintf('%02d', day)}/#{path}"
     end
 
@@ -15,6 +15,8 @@ module SpellingBee
         t = Time.new
         file_name = "#{t.year}-#{sprintf('%02d', t.month)}-#{sprintf('%02d', t.day)}.html"
         file_path = "#{FILE_PATH}/#{file_name}"
+
+        Dir.mkdir(FILE_PATH) unless Dir.exist?(FILE_PATH)
 
         if File.exist?(file_path)
             puts 'File already exists. No need to download again.'
